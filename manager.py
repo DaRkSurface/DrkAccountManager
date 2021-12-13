@@ -55,6 +55,7 @@ def delete():
     if sure == "n":
        print("Going back.")
        time.sleep(1)
+       usage()
     elif sure == "y":
         print("Opening ./WFILE.txt")
         acfile = open("./WFILE.txt", "w")
@@ -102,7 +103,9 @@ def usage():
     [5] Credits.
     [6] Current state of DarkAM.
     [7] Settings.
-    [8] Quit.
+    [8] Contact
+
+    [9] Quit.
     
     """)
     USER_IN = input("Enter Option: ")
@@ -126,9 +129,19 @@ def usage():
 
     elif USER_IN == "7":
         darkamss()
-
-
     elif USER_IN == "8":
+        print("""
+        
+        GitHub: https://github.com/DaRkSurface
+        Discord: drk#1337
+        """)
+        input("\nPress enter to go back...")
+        usage()
+
+
+
+
+    elif USER_IN == "9":
         print("Quitting..")
         time.sleep(0.5)
         clearcmd()
