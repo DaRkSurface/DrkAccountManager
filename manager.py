@@ -12,6 +12,7 @@ from cryptography.fernet import Fernet
 from termcolor import colored
 
 # Global Variables
+discord = "drk#1337"
 
 # Defines
 def art():
