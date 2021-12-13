@@ -139,14 +139,16 @@ def usage():
 
 
 def write():
+    NAME = input("Name this account: ")
     MAIL = input("Email: ")
     PASSWD = input("Passwd: ")
     OTHER = input("Other Info: ")
     with open("./WFILE.txt", "a") as WFILE:
         WFILE.write("-----------------" + "\n")
-
+        WFILE.write(NAME.upper() + "\n\n")
+        print("\nSET: " + NAME + " As NAME.")
         WFILE.write("Email: " + MAIL + "\n")
-        print("\nWROTE: " + MAIL)
+        print("WROTE: " + MAIL)
         time.sleep(0.3)
         
         WFILE.write("Password: " + PASSWD + "\n")
