@@ -50,7 +50,7 @@ def credits():
     time.sleep(2.5)
     usage()
 def delete():
-    sure = input("Are you sure? (Y/n): ")
+    sure = input("Are you sure you want to delete everything, this cant be undone? (Y/n): ")
     if sure == "n":
        print("Going back.")
        time.sleep(1)
@@ -63,9 +63,9 @@ def delete():
         input("\nPress enter to go back...")
         usage()
     else:
-        print("WRONG INPUT! Enter y or n")
+        print("\nWRONG INPUT! Enter y or n")
         print("Going back.")
-        time.sleep(1.5)
+        time.sleep(2.5)
         usage() 
 
 def encrypt():
@@ -97,9 +97,9 @@ def usage():
     [2] Read every account.
     [3] Delete all accounts.
     [4] Coming Soon.
+    
     [5] Credits.
     [6] Current state of DarkAM.
-    
     [7] Settings.
     [8] Quit.
     
@@ -132,6 +132,11 @@ def usage():
         time.sleep(0.5)
         clearcmd()
         quit()
+    else:
+        print("Did not reckognize your input " + USER_IN + " try again.")
+        time.sleep(2.5)
+        usage()
+
 
 def write():
     MAIL = input("Email: ")
@@ -207,7 +212,4 @@ def main():
     
     usage()
 
-
 main()
-
- 
