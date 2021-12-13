@@ -84,8 +84,40 @@ def darkamss():
     """)
     DAMSUSERIN = input("Enter Option: ") 
     if DAMSUSERIN == "1":
-        print("Coming soon.")
-        time.sleep(1.5)
+        sure = input(colored("You are about to change your Master Password, are you sure? (y/n)", "red"))
+        if sure == "y":
+            with open("./MSKPS.txt", "r+") as passfile:
+                password = passfile.read()
+                confirmpass = input("Enter Master Password: ")
+                if confirmpass == password:
+                    passwd = input(colored("Enter your new password: ", "red"))
+                    confirm = input(colored("Enter password again: ", "red"))
+                    if passwd == confirm:
+                        passfile.truncate(0)
+                        passfile.write(passwd)
+                        passfile.close()
+                        print(colored("\nPassword has been changed to: " + passwd, "green"))
+                        input("\nPress enter to go back...")
+                        darkamss()
+                    else:
+                        print("Conformation went wrong.")
+                        time.sleep(2)
+                        darkamss()
+                else:
+                    print(colored("PASSWORD WRONG!", "red"))
+                    time.sleep(1.5)
+                    darkamss()
+
+        elif sure == "n":
+            print("Aborted.")
+            time.sleep(1.5)
+            usage()
+        else:
+            print("Did not reckognize input, enter either y or n. Try Again...")
+            time.sleep(2.5)
+            darkamss()
+
+
         clearcmd()
         darkamss()
     elif DAMSUSERIN == "2":
